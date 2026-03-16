@@ -96,11 +96,43 @@ function updateScrollBar() {
 const backTop = document.getElementById('back-top');
 backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-/* ── Nav stuck + scroll bar + back-to-top (single scroll listener) ── */
+/* ── Active Nav ── */
+const navLinks     = document.querySelectorAll('.nav-links a');
+const sectionIds   = ['about', 'skills', 'timeline', 'projects', 'contact'];
+function updateActiveNav() {
+  const mid = scrollY + window.innerHeight * 0.38;
+  let current = null;
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= mid) current = id;
+  });
+  navLinks.forEach(a =>
+    a.classList.toggle('active', a.getAttribute('href') === `#${current}`)
+  );
+}
+
+/* ── Parallax Hero ── */
+const heroEl    = document.getElementById('hero');
+const heroLeft  = document.querySelector('.hero-left');
+const heroRight = document.querySelector('.hero-right');
+const hGrid     = document.querySelector('.h-grid');
+const hGlow     = document.querySelector('.h-glow');
+function updateParallax() {
+  if (scrollY > heroEl.offsetHeight * 1.1) return;
+  const y = scrollY;
+  heroLeft.style.transform  = `translateY(${y * 0.13}px)`;
+  heroRight.style.transform = `translateY(${y * 0.06}px)`;
+  hGrid.style.transform     = `translateY(${y * 0.28}px)`;
+  hGlow.style.transform     = `translateY(${y * 0.18}px)`;
+}
+
+/* ── Single scroll listener ── */
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('stuck', scrollY > 60);
   backTop.classList.toggle('visible', scrollY > 400);
   updateScrollBar();
+  updateActiveNav();
+  updateParallax();
 });
 
 /* ── Animated Counters ── */
@@ -166,15 +198,31 @@ const revealObs = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+/* Add .slbl elements to reveal observer with left-slide class */
+document.querySelectorAll('.slbl').forEach(el => {
+  el.classList.add('reveal');
+  revealObs.observe(el);
+});
+
 /* ── Contact Form ── */
+const toast = document.getElementById('toast');
+let toastTimer;
+
+function showToast() {
+  clearTimeout(toastTimer);
+  toast.classList.add('show');
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
 function hf(e) {
   e.preventDefault();
   const btn  = e.target.querySelector('button');
   const orig = btn.textContent;
 
-  btn.textContent       = '✓ TRANSMISIÓN ENVIADA';
-  btn.style.background  = '#1a3515';
-  btn.style.color       = '#5adb5a';
+  btn.textContent      = '✓ ENVIADO';
+  btn.style.background = 'var(--bg3)';
+  btn.style.color      = '#5adb5a';
+  showToast();
 
   setTimeout(() => {
     btn.textContent      = orig;
