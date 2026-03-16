@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,19 +21,19 @@
   <div id="toast" class="toast">
     <span class="toast-icon">✓</span>
     <div class="toast-body">
-      <div class="toast-title">TRANSMISIÓN ENVIADA</div>
-      <div class="toast-sub">Te respondo a la brevedad.</div>
+      <div class="toast-title" data-i18n="toast-title">TRANSMISIÓN ENVIADA</div>
+      <div class="toast-sub" data-i18n="toast-sub">Te respondo a la brevedad.</div>
     </div>
   </div>
 
   <!-- Back to top -->
-  <button id="back-top" class="back-top" aria-label="Volver arriba">↑</button>
+  <button id="back-top" class="back-top" data-i18n-aria="back-top-aria" aria-label="Volver arriba">↑</button>
 
   <!-- ── Loader ── -->
   <div id="loader">
     <div class="ldr-inner">
       <div class="ldr-logo">R·A·D·E</div>
-      <div class="ldr-sub">SISTEMA INICIALIZANDO</div>
+      <div class="ldr-sub" data-i18n="ldr-sub">SISTEMA INICIALIZANDO</div>
       <div class="ldr-bar-wrap">
         <div class="ldr-bar"><div id="ldr-fill"></div></div>
         <span id="ldr-pct">0%</span>
@@ -66,6 +66,7 @@
       <li><a href="#projects">BUILD</a></li>
       <li><a href="#contact">PING</a></li>
     </ul>
+    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">ES</button>
     <button class="nav-burger" id="nav-burger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -113,10 +114,10 @@ ESPITIA">
         </div>
       </div>
       <p class="h-role"><span id="typed"></span></p>
-      <p class="h-desc">Construyo sistemas robustos y experiencias digitales que funcionan — desde el servidor hasta la interfaz. JS, Node.js y Python. Basado en México, pensando en escala global.</p>
+      <p class="h-desc" data-i18n="h-desc">Construyo sistemas robustos y experiencias digitales que funcionan — desde el servidor hasta la interfaz. JS, Node.js y Python. Basado en México, pensando en escala global.</p>
       <div class="h-ctas">
-        <a class="btn-fire" href="#projects">VER PROYECTOS</a>
-        <a class="btn-ghost" href="#contact">CONECTAR</a>
+        <a class="btn-fire" href="#projects" data-i18n="btn-projects">VER PROYECTOS</a>
+        <a class="btn-ghost" href="#contact" data-i18n="btn-connect">CONECTAR</a>
       </div>
     </div>
 
@@ -130,37 +131,37 @@ ESPITIA">
 
     <div class="status">
       <span class="s-dot"></span>
-      SISTEMA ONLINE · MX
+      <span data-i18n="status-bar">SISTEMA ONLINE · MX</span>
     </div>
   </section>
 
   <!-- ── About ── -->
   <div class="sw" id="about">
-    <div class="slbl">// 01 — INIT</div>
+    <div class="slbl" data-i18n="about-label">// 01 — INIT</div>
     <div class="ag">
       <div class="at reveal">
-        <h2 class="stitle">Hola, soy <span>Ruben.</span></h2>
-        <p>Soy un <strong>Desarrollador de Software Mid-level</strong> con pasión por construir sistemas bien diseñados, código mantenible y productos digitales que resuelven problemas reales.</p>
-        <p>Mi stack principal gira alrededor de <strong>JavaScript/TypeScript</strong>, <strong>Node.js</strong> y <strong>Python</strong> — aunque de igual forma  me adapto rápido a cualquier tecnología que el proyecto requiera.</p>
-        <p>Me interesa el diseño de sistemas, las buenas prácticas de arquitectura y escribir código que otros desarrolladores puedan leer sin querer cerrar el editor.</p>
-        <a class="cv-link" href="#">↓ DESCARGAR CV</a>
+        <h2 class="stitle" data-i18n-html="about-title">Hola, soy <span>Ruben.</span></h2>
+        <p data-i18n-html="about-p1">Soy un <strong>Desarrollador de Software Mid-level</strong> con pasión por construir sistemas bien diseñados, código mantenible y productos digitales que resuelven problemas reales.</p>
+        <p data-i18n-html="about-p2">Mi stack principal gira alrededor de <strong>JavaScript/TypeScript</strong>, <strong>Node.js</strong> y <strong>Python</strong> — aunque de igual forma  me adapto rápido a cualquier tecnología que el proyecto requiera.</p>
+        <p data-i18n-html="about-p3">Me interesa el diseño de sistemas, las buenas prácticas de arquitectura y escribir código que otros desarrolladores puedan leer sin querer cerrar el editor.</p>
+        <a class="cv-link" href="#" data-i18n="cv-link">↓ DESCARGAR CV</a>
       </div>
       <div class="reveal" style="transition-delay:.12s">
         <div class="sg">
-          <div class="sc"><div class="sn" data-count="5" data-suffix="+">0+</div><div class="slb-s">AÑOS EXP.</div></div>
-          <div class="sc"><div class="sn" data-count="10" data-suffix="+">0+</div><div class="slb-s">PROYECTOS</div></div>
-          <div class="sc"><div class="sn">JS</div><div class="slb-s">LENGUAJE MAIN</div></div>
-          <div class="sc"><div class="sn">MX</div><div class="slb-s">UBICACIÓN</div></div>
+          <div class="sc"><div class="sn" data-count="5" data-suffix="+">0+</div><div class="slb-s" data-i18n="stat-exp">AÑOS EXP.</div></div>
+          <div class="sc"><div class="sn" data-count="10" data-suffix="+">0+</div><div class="slb-s" data-i18n="stat-projects">PROYECTOS</div></div>
+          <div class="sc"><div class="sn">JS</div><div class="slb-s" data-i18n="stat-lang">LENGUAJE MAIN</div></div>
+          <div class="sc"><div class="sn">MX</div><div class="slb-s" data-i18n="stat-loc">UBICACIÓN</div></div>
         </div>
         <div class="term">
           <div><span class="pr">$</span> <span class="cm">whoami</span></div>
           <div class="ot"><span class="hi">ruben.espitia</span> · software engineer</div>
           <div><span class="pr">$</span> <span class="cm">cat status.txt</span></div>
-          <div class="ot">abierto a <span class="hi"></span> <span class="hi">full-time</span></div>
+          <div class="ot" data-i18n-html="term-status">abierto a <span class="hi"></span> <span class="hi">full-time</span></div>
           <div><span class="pr">$</span> <span class="cm">node --version</span></div>
-          <div class="ot"><span class="hi">v22.x</span> · siempre en la última LTS</div>
+          <div class="ot" data-i18n-html="term-node"><span class="hi">v22.x</span> · siempre en la última LTS</div>
           <div><span class="pr">$</span> <span class="cm">echo $COFFEE</span></div>
-          <div class="ot"><span class="hi">undefined</span> — perdí la cuenta ☕</div>
+          <div class="ot" data-i18n-html="term-coffee"><span class="hi">undefined</span> — perdí la cuenta ☕</div>
         </div>
       </div>
     </div>
@@ -168,12 +169,12 @@ ESPITIA">
 
   <!-- ── Skills ── -->
   <div class="sw" id="skills">
-    <div class="slbl">// 02 — STACK</div>
-    <h2 class="stitle reveal">Tecnologías <span>dominadas.</span></h2>
+    <div class="slbl" data-i18n="skills-label">// 02 — STACK</div>
+    <h2 class="stitle reveal" data-i18n-html="skills-title">Tecnologías <span>dominadas.</span></h2>
     <div class="sk-outer reveal" style="transition-delay:.1s" id="skills-section">
 
       <div class="sk-row">
-        <span class="sk-cat">LENGUAJES</span>
+        <span class="sk-cat" data-i18n="sk-languages">LENGUAJES</span>
         <div class="skill-bars">
           <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript / TypeScript</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
           <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" data-width="75"></div></div></div>
@@ -182,7 +183,7 @@ ESPITIA">
       </div>
 
       <div class="sk-row">
-        <span class="sk-cat">BACKEND</span>
+        <span class="sk-cat" data-i18n="sk-backend">BACKEND</span>
         <div class="skill-bars">
           <div class="skill-item"><div class="skill-header"><span class="skill-name">Node.js / Express</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill" data-width="88"></div></div></div>
           <div class="skill-item"><div class="skill-header"><span class="skill-name">Python APIs</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill" data-width="70"></div></div></div>
@@ -191,7 +192,7 @@ ESPITIA">
       </div>
 
       <div class="sk-row">
-        <span class="sk-cat">BASE DE DATOS</span>
+        <span class="sk-cat" data-i18n="sk-database">BASE DE DATOS</span>
         <div class="skill-bars">
           <div class="skill-item"><div class="skill-header"><span class="skill-name">PostgreSQL</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-width="80"></div></div></div>
           <div class="skill-item"><div class="skill-header"><span class="skill-name">MongoDB</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill" data-width="65"></div></div></div>
@@ -199,7 +200,7 @@ ESPITIA">
       </div>
 
       <div class="sk-row">
-        <span class="sk-cat">FRONTEND</span>
+        <span class="sk-cat" data-i18n="sk-frontend">FRONTEND</span>
         <div class="pills">
           <span class="pill h">PHP / LARAVEL </span><span class="pill">Docker</span>
           <span class="pill">React</span><span class="pill">Next.js</span>
@@ -208,7 +209,7 @@ ESPITIA">
       </div>
 
       <div class="sk-row">
-        <span class="sk-cat">DEVOPS</span>
+        <span class="sk-cat" data-i18n="sk-devops">DEVOPS</span>
         <div class="pills">
           <span class="pill h">Git / GitHub</span><span class="pill">Docker</span>
         </div>
@@ -219,8 +220,8 @@ ESPITIA">
 
   <!-- ── Timeline ── -->
   <div class="sw" id="timeline">
-    <div class="slbl">// 03 — HISTORIAL</div>
-    <h2 class="stitle reveal">Trayectoria <span>profesional.</span></h2>
+    <div class="slbl" data-i18n="timeline-label">// 03 — HISTORIAL</div>
+    <h2 class="stitle reveal" data-i18n-html="timeline-title">Trayectoria <span>profesional.</span></h2>
     <div class="tl">
 
       <div class="tl-item reveal">
@@ -229,9 +230,9 @@ ESPITIA">
           <div class="tl-dot"></div>
         </div>
         <div class="tl-card">
-          <div class="tl-role">DEVELOPER</div>
-          <div class="tl-company">TECNOLOGÍA EN CUENTAS POR COBRAR (CXC) · CIUDAD, MX</div>
-          <p class="tl-desc">Desarrollo de interfaces reactivas y diseño de soluciones robustas bajo el ecosistema Laravel.</p>
+          <div class="tl-role" data-i18n="tl-role-1">DEVELOPER</div>
+          <div class="tl-company" data-i18n="tl-company-1">TECNOLOGÍA EN CUENTAS POR COBRAR (CXC) · CIUDAD, MX</div>
+          <p class="tl-desc" data-i18n="tl-desc-1">Desarrollo de interfaces reactivas y diseño de soluciones robustas bajo el ecosistema Laravel.</p>
           <div class="tl-tags">
             <span class="pill h">Node.js</span>
             <span class="pill">PostgreSQL</span>
@@ -246,9 +247,9 @@ ESPITIA">
           <div class="tl-dot"></div>
         </div>
         <div class="tl-card">
-          <div class="tl-role">FORMACIÓN</div>
-          <div class="tl-company">UPIIZ - Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas IPN</div>
-          <p class="tl-desc">Consolidación en el mundo de la Ingenieria y la planeacion de proyectos en equipo.</p>
+          <div class="tl-role" data-i18n="tl-role-2">FORMACIÓN</div>
+          <div class="tl-company" data-i18n="tl-company-2">UPIIZ - Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas IPN</div>
+          <p class="tl-desc" data-i18n="tl-desc-2">Consolidación en el mundo de la Ingenieria y la planeacion de proyectos en equipo.</p>
           <div class="tl-tags">
             <span class="pill">Node.js</span>
             <span class="pill">REST</span>
@@ -264,9 +265,9 @@ ESPITIA">
           <div class="tl-dot"></div>
         </div>
         <div class="tl-card">
-          <div class="tl-role">FORMACIÓN</div>
-          <div class="tl-company">Centro de Estudios Científicos y Tecnológicos N° 18 Zacatecas IPN</div>
-          <p class="tl-desc">Inicio de mis principios como programador y semillas de futuras habilidades relacionadas al mundo del código.</p>
+          <div class="tl-role" data-i18n="tl-role-3">FORMACIÓN</div>
+          <div class="tl-company" data-i18n="tl-company-3">Centro de Estudios Científicos y Tecnológicos N° 18 Zacatecas IPN</div>
+          <p class="tl-desc" data-i18n="tl-desc-3">Inicio de mis principios como programador y semillas de futuras habilidades relacionadas al mundo del código.</p>
           <div class="tl-tags">
             <span class="pill h">JavaScript</span>
             <span class="pill">HTML5</span>
@@ -282,8 +283,8 @@ ESPITIA">
 
   <!-- ── Projects — Flip Cards ── -->
   <div class="sw" id="projects">
-    <div class="slbl">// 04 — BUILD</div>
-    <h2 class="stitle reveal">Trabajo <span>selecto.</span></h2>
+    <div class="slbl" data-i18n="projects-label">// 04 — BUILD</div>
+    <h2 class="stitle reveal" data-i18n-html="projects-title">Trabajo <span>selecto.</span></h2>
     <div class="pj-grid reveal" style="transition-delay:.1s">
 
       <div class="flip-card">
@@ -296,12 +297,12 @@ ESPITIA">
               <span class="pill">Express</span>
               <span class="pill">PostgreSQL</span>
             </div>
-            <div class="flip-hint">HOVER PARA VER MÁS ↻</div>
+            <div class="flip-hint" data-i18n="flip-hint">HOVER PARA VER MÁS ↻</div>
           </div>
           <div class="flip-back">
             <div>
               <div class="card-title" style="margin-bottom:.8rem;">UPIIZCOM</div>
-              <div class="card-desc">Proyecto de Titulacion de la Carrera</div>
+              <div class="card-desc" data-i18n="proj-1-desc">Proyecto de Titulación de la Carrera.</div>
             </div>
             <div>
               <div class="card-year">2022</div>
@@ -324,12 +325,12 @@ ESPITIA">
               <span class="pill">FastAPI</span>
               <span class="pill">Redis</span>
             </div>
-            <div class="flip-hint">HOVER PARA VER MÁS ↻</div>
+            <div class="flip-hint" data-i18n="flip-hint">HOVER PARA VER MÁS ↻</div>
           </div>
           <div class="flip-back">
             <div>
               <div class="card-title" style="margin-bottom:.8rem;">FINANCIAL TRACKING</div>
-              <div class="card-desc">Manejo y predicciones para economias personales.</div>
+              <div class="card-desc" data-i18n="proj-2-desc">Manejo y predicciones para economías personales.</div>
             </div>
             <div>
               <div class="card-year">2024</div>
@@ -352,12 +353,12 @@ ESPITIA">
               <span class="pill">React</span>
               <span class="pill">MongoDB</span>
             </div>
-            <div class="flip-hint">HOVER PARA VER MÁS ↻</div>
+            <div class="flip-hint" data-i18n="flip-hint">HOVER PARA VER MÁS ↻</div>
           </div>
           <div class="flip-back">
             <div>
               <div class="card-title" style="margin-bottom:.8rem;">Personal Tracking</div>
-              <div class="card-desc">Seguimientos de distintos comportamientos personales para su improvement.</div>
+              <div class="card-desc" data-i18n="proj-3-desc">Seguimiento de distintos comportamientos personales para su mejora.</div>
             </div>
             <div>
               <div class="card-year">2023</div>
@@ -375,11 +376,11 @@ ESPITIA">
 
   <!-- ── Contact ── -->
   <div class="sw" id="contact">
-    <div class="slbl">// 05 — PING</div>
+    <div class="slbl" data-i18n="contact-label">// 05 — PING</div>
     <div class="cg">
       <div class="ci reveal">
-        <h2 class="stitle">¿Tienes un <span>proyecto?</span></h2>
-        <p>Disponible para colaboraciones, proyectos freelance o posiciones full-time. Escríbeme y te respondo en la brevedad.</p>
+        <h2 class="stitle" data-i18n-html="contact-title">¿Tienes un <span>proyecto?</span></h2>
+        <p data-i18n="contact-p">Disponible para colaboraciones, proyectos freelance o posiciones full-time. Escríbeme y te respondo en la brevedad.</p>
         <div class="c-links">
           <a class="c-link" href="mailto:ruben.0519@hotmail.com">
             <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -397,10 +398,19 @@ ESPITIA">
       </div>
       <div class="reveal" style="transition-delay:.12s">
         <form action="https://formspree.io/f/xyknnyjb" method="POST" onsubmit="hf(event)">
-          <div class="fg"><label>IDENTIFICACIÓN</label><input type="text" name="nombre" placeholder="Tu nombre completo" required/></div>
-          <div class="fg"><label>CANAL DE RETORNO</label><input type="email" name="email" placeholder="tu@email.com" required/></div>
-          <div class="fg"><label>TRANSMISIÓN</label><textarea name="mensaje" placeholder="Cuéntame sobre tu proyecto..." required></textarea></div>
-          <button class="btn-fire" type="submit" style="align-self:flex-start;cursor:none;">ENVIAR TRANSMISIÓN</button>
+          <div class="fg">
+            <label data-i18n="form-name-label">IDENTIFICACIÓN</label>
+            <input type="text" name="nombre" data-i18n-placeholder="form-name-placeholder" placeholder="Tu nombre completo" required/>
+          </div>
+          <div class="fg">
+            <label data-i18n="form-email-label">CANAL DE RETORNO</label>
+            <input type="email" name="email" data-i18n-placeholder="form-email-placeholder" placeholder="tu@email.com" required/>
+          </div>
+          <div class="fg">
+            <label data-i18n="form-msg-label">TRANSMISIÓN</label>
+            <textarea name="mensaje" data-i18n-placeholder="form-msg-placeholder" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+          </div>
+          <button class="btn-fire" id="form-submit-btn" type="submit" style="align-self:flex-start;cursor:none;" data-i18n="form-submit">ENVIAR TRANSMISIÓN</button>
         </form>
       </div>
     </div>
@@ -408,11 +418,12 @@ ESPITIA">
 
   <!-- ── Footer ── -->
   <footer>
-    <span>© 2025 <em>RUBEN A.D. ESPITIA</em> · TODOS LOS DERECHOS RESERVADOS</span>
-    <span>DISEÑADO &amp; CODED · <em>MX</em></span>
+    <span data-i18n="footer-rights">© 2025 RUBEN A.D. ESPITIA · TODOS LOS DERECHOS RESERVADOS</span>
+    <span data-i18n="footer-credit">DISEÑADO &amp; CODED · MX</span>
   </footer>
 
-  <!-- Scripts: Three.js CDN first, then local modules -->
+  <!-- Scripts: i18n first, then Three.js CDN, then local modules -->
+  <script src="js/i18n.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="js/three-scene.js"></script>
   <script src="js/particles.js"></script>

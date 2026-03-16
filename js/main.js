@@ -27,10 +27,10 @@
   const pctEl  = document.getElementById('ldr-pct');
   const statEl = document.getElementById('ldr-status');
   const statuses = [
-    'CARGANDO ACTIVOS...',
-    'MONTANDO ESCENA 3D...',
-    'COMPILANDO SHADERS...',
-    'SISTEMA LISTO.',
+    i18n.t('ldr-status-0'),
+    i18n.t('ldr-status-1'),
+    i18n.t('ldr-status-2'),
+    i18n.t('ldr-status-3'),
   ];
   let prog = 0;
 
@@ -40,7 +40,7 @@
       prog = 100;
       fill.style.width   = '100%';
       pctEl.textContent  = '100%';
-      statEl.textContent = 'SISTEMA LISTO.';
+      statEl.textContent = i18n.t('ldr-status-3');
       clearInterval(iv);
       setTimeout(() => ldr.classList.add('done'), 500);
     } else {
@@ -159,15 +159,10 @@ if (sgEl) {
 }
 
 /* ── Typing effect ── */
-const phrases = [
-  'Full-Stack Engineer',
-  'Node.js Developer',
-  'Builder de APIs escalables',
-  'JavaScript & Python',
-  'Resolviendo problemas reales',
-];
+let phrases = i18n.t('phrases');
 let pi = 0, ci = 0, deleting = false;
 const typedEl = document.getElementById('typed');
+let typeTimer = null;
 
 function type() {
   const phrase = phrases[pi];
@@ -175,16 +170,25 @@ function type() {
 
   if (!deleting && ci === phrase.length + 1) {
     deleting = true;
-    setTimeout(type, 1900);
+    typeTimer = setTimeout(type, 1900);
     return;
   }
   if (deleting && ci === 0) {
     deleting = false;
     pi = (pi + 1) % phrases.length;
   }
-  setTimeout(type, deleting ? 42 : 88);
+  typeTimer = setTimeout(type, deleting ? 42 : 88);
 }
-setTimeout(type, 1000);
+typeTimer = setTimeout(type, 1000);
+
+/* Restart typing when language changes */
+document.addEventListener('langchange', () => {
+  clearTimeout(typeTimer);
+  phrases = i18n.t('phrases');
+  pi = 0; ci = 0; deleting = false;
+  typedEl.textContent = '';
+  typeTimer = setTimeout(type, 300);
+});
 
 /* ── Scroll Reveal ── */
 const revealObs = new IntersectionObserver(entries => {
@@ -220,7 +224,7 @@ async function hf(e) {
   const btn  = form.querySelector('button');
   const orig = btn.textContent;
 
-  btn.textContent  = 'ENVIANDO...';
+  btn.textContent  = i18n.t('form-sending');
   btn.disabled     = true;
 
   try {
@@ -231,7 +235,7 @@ async function hf(e) {
     });
 
     if (res.ok) {
-      btn.textContent      = '✓ ENVIADO';
+      btn.textContent      = i18n.t('form-sent');
       btn.style.background = 'var(--bg3)';
       btn.style.color      = '#5adb5a';
       showToast();
@@ -242,12 +246,12 @@ async function hf(e) {
         btn.style.color      = '';
       }, 3500);
     } else {
-      btn.textContent = '✗ ERROR — INTENTA DE NUEVO';
+      btn.textContent = i18n.t('form-error');
       btn.style.color = 'var(--red)';
       setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 3000);
     }
   } catch {
-    btn.textContent = '✗ SIN CONEXIÓN';
+    btn.textContent = i18n.t('form-offline');
     btn.style.color = 'var(--red)';
     setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 3000);
   } finally {

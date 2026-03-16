@@ -179,6 +179,24 @@ body::before {
   50% { text-shadow: 0 0 50px rgba(255,140,0,.9), 0 0 80px rgba(232,0,26,.4); }
 }
 
+/* ── Language Toggle ── */
+.lang-toggle {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .15em;
+  background: transparent;
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  padding: .25rem .55rem;
+  cursor: none;
+  transition: background .2s, color .2s;
+  flex-shrink: 0;
+}
+.lang-toggle:hover {
+  background: var(--amber);
+  color: var(--bg);
+}
+
 /* ── Hamburger ── */
 .nav-burger {
   display: none;
