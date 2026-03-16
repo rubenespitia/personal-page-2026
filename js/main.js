@@ -214,20 +214,43 @@ function showToast() {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
 }
 
-function hf(e) {
+async function hf(e) {
   e.preventDefault();
-  const btn  = e.target.querySelector('button');
+  const form = e.target;
+  const btn  = form.querySelector('button');
   const orig = btn.textContent;
 
-  btn.textContent      = '✓ ENVIADO';
-  btn.style.background = 'var(--bg3)';
-  btn.style.color      = '#5adb5a';
-  showToast();
+  btn.textContent  = 'ENVIANDO...';
+  btn.disabled     = true;
 
-  setTimeout(() => {
-    btn.textContent      = orig;
-    btn.style.background = '';
-    btn.style.color      = '';
-    e.target.reset();
-  }, 3500);
+  try {
+    const res = await fetch(form.action, {
+      method:  'POST',
+      headers: { 'Accept': 'application/json' },
+      body:    new FormData(form),
+    });
+
+    if (res.ok) {
+      btn.textContent      = '✓ ENVIADO';
+      btn.style.background = 'var(--bg3)';
+      btn.style.color      = '#5adb5a';
+      showToast();
+      form.reset();
+      setTimeout(() => {
+        btn.textContent      = orig;
+        btn.style.background = '';
+        btn.style.color      = '';
+      }, 3500);
+    } else {
+      btn.textContent = '✗ ERROR — INTENTA DE NUEVO';
+      btn.style.color = 'var(--red)';
+      setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 3000);
+    }
+  } catch {
+    btn.textContent = '✗ SIN CONEXIÓN';
+    btn.style.color = 'var(--red)';
+    setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 3000);
+  } finally {
+    btn.disabled = false;
+  }
 }

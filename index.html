@@ -396,10 +396,10 @@ ESPITIA">
         </div>
       </div>
       <div class="reveal" style="transition-delay:.12s">
-        <form onsubmit="hf(event)">
-          <div class="fg"><label>IDENTIFICACIÓN</label><input type="text" placeholder="Tu nombre completo" required/></div>
-          <div class="fg"><label>CANAL DE RETORNO</label><input type="email" placeholder="tu@email.com" required/></div>
-          <div class="fg"><label>TRANSMISIÓN</label><textarea placeholder="Cuéntame sobre tu proyecto..." required></textarea></div>
+        <form action="https://formspree.io/f/xyknnyjb" method="POST" onsubmit="hf(event)">
+          <div class="fg"><label>IDENTIFICACIÓN</label><input type="text" name="nombre" placeholder="Tu nombre completo" required/></div>
+          <div class="fg"><label>CANAL DE RETORNO</label><input type="email" name="email" placeholder="tu@email.com" required/></div>
+          <div class="fg"><label>TRANSMISIÓN</label><textarea name="mensaje" placeholder="Cuéntame sobre tu proyecto..." required></textarea></div>
           <button class="btn-fire" type="submit" style="align-self:flex-start;cursor:none;">ENVIAR TRANSMISIÓN</button>
         </form>
       </div>
