@@ -243,6 +243,7 @@ body::before {
 .mobile-menu.open ul li:nth-child(2) { opacity: 1; transform: none; transition-delay: .14s; }
 .mobile-menu.open ul li:nth-child(3) { opacity: 1; transform: none; transition-delay: .20s; }
 .mobile-menu.open ul li:nth-child(4) { opacity: 1; transform: none; transition-delay: .26s; }
+.mobile-menu.open ul li:nth-child(5) { opacity: 1; transform: none; transition-delay: .32s; }
 .mobile-menu ul a {
   display: block;
   font-family: var(--display);
