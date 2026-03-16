@@ -4,6 +4,22 @@
    mobile menu, and contact form handler.
 ══════════════════════════════════════════════════════ */
 
+/* ── Equalizer Bars ── */
+['eq-left', 'eq-right'].forEach(side => {
+  const wrap = document.createElement('div');
+  wrap.className = `eq ${side}`;
+  for (let i = 0; i < 12; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'eq-bar';
+    const h     = Math.floor(Math.random() * 55 + 8);
+    const dur   = (Math.random() * 0.9 + 0.35).toFixed(2);
+    const delay = (Math.random() * 1.2).toFixed(2);
+    bar.style.cssText = `--h:${h}px; --dur:${dur}s; --delay:${delay}s;`;
+    wrap.appendChild(bar);
+  }
+  document.body.appendChild(wrap);
+});
+
 /* ── Loader ── */
 (function () {
   const ldr    = document.getElementById('loader');
