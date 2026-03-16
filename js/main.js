@@ -69,10 +69,46 @@ document.querySelectorAll('.btn-fire, .btn-ghost, .cv-link').forEach(btn => {
   });
 });
 
-/* ── Nav: add .stuck class on scroll ── */
+/* ── Scroll Progress Bar ── */
+const scrollBar = document.getElementById('scroll-bar');
+function updateScrollBar() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  scrollBar.style.width = (scrollY / max * 100) + '%';
+}
+
+/* ── Back to Top ── */
+const backTop = document.getElementById('back-top');
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ── Nav stuck + scroll bar + back-to-top (single scroll listener) ── */
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('stuck', scrollY > 60);
+  backTop.classList.toggle('visible', scrollY > 400);
+  updateScrollBar();
 });
+
+/* ── Animated Counters ── */
+const sgEl = document.querySelector('.sg');
+if (sgEl) {
+  const counterObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      document.querySelectorAll('.sn[data-count]').forEach(el => {
+        const target = +el.dataset.count;
+        const suffix = el.dataset.suffix || '';
+        const step   = 1200 / target;
+        let current  = 0;
+        const iv = setInterval(() => {
+          current++;
+          el.textContent = current + suffix;
+          if (current >= target) clearInterval(iv);
+        }, step);
+      });
+      counterObs.unobserve(sgEl);
+    });
+  }, { threshold: 0.5 });
+  counterObs.observe(sgEl);
+}
 
 /* ── Typing effect ── */
 const phrases = [
