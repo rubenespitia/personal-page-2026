@@ -98,7 +98,7 @@ backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smo
 
 /* ── Active Nav ── */
 const navLinks     = document.querySelectorAll('.nav-links a');
-const sectionIds   = ['about', 'skills', 'timeline', 'projects', 'contact'];
+const sectionIds = ['about', 'skills', 'timeline', 'projects', 'contact'];
 function updateActiveNav() {
   const mid = scrollY + window.innerHeight * 0.38;
   let current = null;
