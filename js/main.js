@@ -1,8 +1,73 @@
 /* ══════════════════════════════════════════════════════
    main.js
-   Nav scroll behaviour, typing effect,
-   scroll reveal, and contact form handler.
+   Loader, nav, typing, scroll reveal, magnetic buttons,
+   mobile menu, and contact form handler.
 ══════════════════════════════════════════════════════ */
+
+/* ── Loader ── */
+(function () {
+  const ldr    = document.getElementById('loader');
+  const fill   = document.getElementById('ldr-fill');
+  const pctEl  = document.getElementById('ldr-pct');
+  const statEl = document.getElementById('ldr-status');
+  const statuses = [
+    'CARGANDO ACTIVOS...',
+    'MONTANDO ESCENA 3D...',
+    'COMPILANDO SHADERS...',
+    'SISTEMA LISTO.',
+  ];
+  let prog = 0;
+
+  const iv = setInterval(() => {
+    prog += Math.random() * 12 + 3;
+    if (prog >= 100) {
+      prog = 100;
+      fill.style.width   = '100%';
+      pctEl.textContent  = '100%';
+      statEl.textContent = 'SISTEMA LISTO.';
+      clearInterval(iv);
+      setTimeout(() => ldr.classList.add('done'), 500);
+    } else {
+      fill.style.width   = prog + '%';
+      pctEl.textContent  = Math.floor(prog) + '%';
+      const si = prog < 30 ? 0 : prog < 60 ? 1 : prog < 85 ? 2 : 3;
+      statEl.textContent = statuses[si];
+    }
+  }, 90);
+})();
+
+/* ── Mobile Menu ── */
+const burger     = document.getElementById('nav-burger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+burger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  burger.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+/* ── Magnetic Buttons ── */
+document.querySelectorAll('.btn-fire, .btn-ghost, .cv-link').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r  = btn.getBoundingClientRect();
+    const dx = (e.clientX - (r.left + r.width  / 2)) * 0.28;
+    const dy = (e.clientY - (r.top  + r.height / 2)) * 0.28;
+    btn.style.transition = 'transform .1s ease, filter .2s';
+    btn.style.transform  = `translate(${dx}px,${dy}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transition = 'transform .5s cubic-bezier(.2,1,.3,1), filter .2s';
+    btn.style.transform  = '';
+  });
+});
 
 /* ── Nav: add .stuck class on scroll ── */
 window.addEventListener('scroll', () => {
